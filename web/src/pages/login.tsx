@@ -1,15 +1,11 @@
 import { Box, Button } from '@chakra-ui/core';
 import { Formik, Form } from 'formik';
 import { useRouter } from 'next/dist/client/router';
-import React from 'react'
-import { formatWithOptions } from 'util';
+import React from 'react';
 import Inputfield from '../components/InputField';
 import Wrapper from '../components/Wrapper';
 import { useLoginMutation } from '../generated/graphql';
 import { toErrorMap } from '../utils/toErrorMap';
-
-interface registerProps {}
-
 
 const Login: React.FC<{}> = () => {
   const router = useRouter();
