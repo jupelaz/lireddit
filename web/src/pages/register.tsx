@@ -4,6 +4,7 @@ import React from 'react'
 import Inputfield from '../components/InputField';
 import Wrapper from '../components/Wrapper';
 import { useRegisterMutation } from '../generated/graphql';
+import { toErrorMap } from '../utils/toErrorMap';
 
 interface registerProps {}
 
@@ -17,10 +18,9 @@ const Register: React.FC<registerProps> = () => {
         onSubmit={async (values, {setErrors}) => {
           const response = await register(values);
           if (response.data?.register.errors) {
-            [{field: 'username', message: 'something wrong'}]
-            setErrors({
-              username: "hey Im an error"
-            });
+            setErrors(toErrorMap(response.data.register.errors));
+          } else if (response.data?.register.user) {
+            //worked
           }
         }}
       >
