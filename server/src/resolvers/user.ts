@@ -52,7 +52,7 @@ export class UserResolver {
         errors: [
           {
             field: 'username',
-            message: "length must be greatter than 2",
+            message: "length must be greater than 2",
           },
         ],
       };
